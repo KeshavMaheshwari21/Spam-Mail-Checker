@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 5px 0;
+            text-align: center;
+        }
+
+        .header-title {
+            color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 24px;
+            margin: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-title img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .cover-img {
+            display: block;
+            width: 600px;
+            height: auto;
+            margin: 20px auto;
+            border-radius: 0%;
+        }
+
+        .container {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 100px;
+            width: 100%;
+            height: 500px;
+            max-width: 700px; /* Increase form container size */
+            margin: 0 auto; /* Center the form */
+        }
+
+        textarea {
+            width: calc(100%);
+            height: 200px; /* Increase height of the textarea */
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .button {
+            padding: 12px 20px; /* Increase button size */
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto 0;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #ffffff;
+            color: #181818;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .cover-img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-title">
+            <img src="/static/logo.jpg" alt="Logo">
+            <h2><span style="color: #e57e08;">SPAM</span> SEARCHER</h2>
+        </div>
+    </header>
+    <img src="/static/cover.jpg" alt="Cover Image" class="cover-img" style="margin-top: -10px;">
+    <main style="display: flex; justify-content: center; margin-top: 20px;margin-left: 50px;">
+        <div style="width: 500px; margin-right: 20px;margin-left: 11%;margin-top: 50px;margin-bottom: 200px;">
+            <p>The primary goal of an email classification model is to distinguish between legitimate emails (ham) and
+                unsolicited or potentially harmful emails (spam). This helps users manage their inboxes more effectively and
+                avoid potential security risks.</p>
+            <p>
+                In summary, an email classification model plays a crucial role in automating the sorting of emails into ham
+                or spam categories. By leveraging machine learning techniques and continuously adapting to new patterns,
+                these models help users maintain a cleaner and more secure inbox.
+            </p>
+        </div>
+        <div class="container" style="width: 500px;margin-left: 50px;height: 355px;">
+            <form action="{{ url_for('prediction') }}" method="post" style="height: 400px;">
+                <h3 style="text-align: center;"><label for="emailContent">Enter Email Content:</label></h3>
+                <textarea id="emailContent" name="emailContent" required></textarea>
+                <button type="submit" class="button" style="font-size: 1.1rem;">Check</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        &copy; 2024 Email Classification System. All rights reserved.
+    </footer>
+</body>
+
+</html>
